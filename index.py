@@ -3,7 +3,9 @@ app=Flask(__name__)
 
 @app.route("/")
 def index():
-  return render_template('index.html'), 200
+  pictures=['albufera','fallas','street','arts1',
+  'arts2','malvarrosaBeach','townHall','bullring','skyline','townHall2','coast','velesEvents']
+  return render_template('index.html',pictures=pictures), 200
 
 @app.errorhandler(404)
 def page_not_found(error):

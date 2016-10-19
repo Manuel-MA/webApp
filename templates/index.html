@@ -5,8 +5,14 @@
     />
   </head>
   <body>
+    <div id="header">
+    <img src="{{ url_for('static', filename='valenciaShield.png') }}"/>
+    </div>
+    <div id="container">
     <h1> Valencia Catalogue</h1>
-    <img src="{{ url_for('static', filename='arts1.jpg') }}" />
-    <img src="{{ url_for('static', filename='arts2.jpg') }}" />
+    {% for picture in pictures %}
+      <img class="picture" src="static/{{ picture }}.jpg"/>
+    {% endfor %}  
+    </div>
   </body>
 </html>
