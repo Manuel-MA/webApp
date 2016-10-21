@@ -1,31 +1,44 @@
 from flask import Flask, url_for, render_template
 app=Flask(__name__)
 
+@app.template_global(name='zip')
+def _zip(*args, **kwargs):
+  return __builtins__.zip(*args, **kwargs)
+
 @app.route("/")
 def cover():
   return render_template('cover.html'), 200
 
-@app.route("/index")
-def index():
-  pictures=['albufera','fallas','street','arts1',
-  'arts2','malvarrosaBeach','townHall','bullring','skyline','townHall2','coast','velesEvents']
-  return render_template('index.html',pictures=pictures), 200
-
 @app.route("/city")
 def city():
-  return render_template('city.html'), 200
+  topic='City'
+  pictures=['street','arts1',
+  'arts2','townHall','bullring','skyline','townHall2','velesEvents']
+  descriptions=['First description','Second description','Third description','qwe','qweqwe']
+  return render_template('gallery.html',topic=topic,pictures_descriptions=zip(pictures,descriptions)), 200
 
-@app.route("/coast")
-def coast():
-  return render_template('coast.html'), 200
+@app.route("/nature")
+def nature():
+  topic='Nature'
+  pictures=['albufera','malvarrosaBeach','coast']
+  descriptions=['Albufera','Malvarrosa','Random Coast']  
+  return render_template('gallery.html',topic=topic,pictures_descriptions=zip(pictures,descriptions)), 200
+
 
 @app.route("/leisure")
 def leisure():
-  return render_template('leisure.html'), 200
+  topic='Leisure'
+  pictures=['fallas']
+  descriptions=['Fallas']  
+  return render_template('gallery.html',topic=topic,pictures_descriptions=zip(pictures,descriptions)), 200
 
 @app.route("/sports")
 def sports():
-  return render_template('sports.html'), 200
+  topic='Sports'
+  pictures=['albufera','fallas','street','arts1',
+  'arts2','malvarrosaBeach','townHall','bullring','skyline','townHall2','coast','velesEvents']
+  descriptions=['Fallas']  
+  return render_template('gallery.html',topic=topic,pictures_descriptions=zip(pictures,descriptions)), 200
 
 @app.errorhandler(404)
 def page_not_found(error):
