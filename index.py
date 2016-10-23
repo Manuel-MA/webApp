@@ -35,9 +35,11 @@ def leisure():
 @app.route("/sports")
 def sports():
   topic='Sports'
-  pictures=['albufera','fallas','street','arts1',
-  'arts2','malvarrosaBeach','townHall','bullring','skyline','townHall2','coast','velesEvents']
-  descriptions=['Fallas']  
+  pictures=['fonteta','surf','llevant','athleticsTrack',
+  'mestalla','paddleSurf','skatePark','volleyCourt','courts']
+  descriptions=['"La Fontenta" basket stadium','Surf on Malvarrosa Beach',
+  'Levante UD stadium','Athletics Track','Valencia CF stadium',
+  'Paddle surf on Valencia`s port','Skate park','Volleyball courts','Sports courts']  
   return render_template('gallery.html',topic=topic,pictures_descriptions=zip(pictures,descriptions)), 200
 
 @app.errorhandler(404)
