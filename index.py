@@ -9,7 +9,7 @@ def _zip(*args, **kwargs):
 def cover():
   return render_template('cover.html'), 200
 
-@app.route("/city")
+@app.route("/City")
 def city():
   topic='City'
   pictures=['street','arts1',
@@ -17,7 +17,7 @@ def city():
   descriptions=['First description','Second description','Third description','qwe','qweqwe']
   return render_template('gallery.html',topic=topic,pictures_descriptions=zip(pictures,descriptions)), 200
 
-@app.route("/nature")
+@app.route("/Nature")
 def nature():
   topic='Nature'
   pictures=['albufera','malvarrosaBeach','coast']
@@ -25,14 +25,14 @@ def nature():
   return render_template('gallery.html',topic=topic,pictures_descriptions=zip(pictures,descriptions)), 200
 
 
-@app.route("/leisure")
+@app.route("/Leisure")
 def leisure():
   topic='Leisure'
   pictures=['fallas']
   descriptions=['Fallas']  
   return render_template('gallery.html',topic=topic,pictures_descriptions=zip(pictures,descriptions)), 200
 
-@app.route("/sports")
+@app.route("/Sports")
 def sports():
   topic='Sports'
   pictures=['fonteta','surf','llevant','athleticsTrack',
@@ -41,6 +41,12 @@ def sports():
   'Levante UD stadium','Athletics Track','Valencia CF stadium',
   'Paddle surf on Valencia`s port','Skate park','Volleyball courts','Sports courts']  
   return render_template('gallery.html',topic=topic,pictures_descriptions=zip(pictures,descriptions)), 200
+
+@app.route("/<catalogue>/<picture>")
+def picture(catalogue=None,picture=None):
+  cat = {'catalogue':catalogue}
+  pict = {'picture':picture}
+  return render_template('picture.html',cat=cat,pict=pict)
 
 @app.errorhandler(404)
 def page_not_found(error):

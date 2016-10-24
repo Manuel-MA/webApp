@@ -13,23 +13,19 @@
       <a href="/"><img src="{{ url_for('static',
       filename='img/valenciaShield.png') }}"/></a>
       <ul>
-        <li><a href="City">City</a></li>
-        <li><a href="Nature">Nature</a></li>
-        <li><a href="Leisure">Leisure</a></li>
-        <li><a href="Sports">Sports</a></li>
+        <li><a href="../City">City</a></li>
+        <li><a href="../Nature">Nature</a></li>
+        <li><a href="../Leisure">Leisure</a></li>
+        <li><a href="../Sports">Sports</a></li>
       </ul>
     </div>
     <div id="container">
-    <h1> {{ topic }} Catalogue</h1>
-    {% for picture,description in pictures_descriptions %}
-    <a href="{{ topic }}/{{ picture }}">
-      <div class="imgContainer">
-        <img class="picture" src="static/img/{{ picture }}.jpg"/>
-        <br />
-        {{ description }}
-      </div>
-    </a>
-    {% endfor %}  
+    <h1> {{ cat.catalogue }} Catalogue</h1>
+    <div class="mainImgContainer">
+      <img class="mainPicture" src="../static/img/{{ pict.picture }}.jpg"/>
+      <br />
+      <a href="../{{ cat.catalogue }}" class="btn btn-primary btn-lg" >Back</a>
+    </div>  
     </div>
   </body>
 </html>
