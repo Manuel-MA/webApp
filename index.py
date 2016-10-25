@@ -104,7 +104,28 @@ def picture(catalogue=None,picture=None):
 
 @app.errorhandler(404)
 def page_not_found(error):
-  return "Couldn't find the page you requested.", 404
+
+  form = '''
+  <html>
+  <head>
+    <link href="../static/css/style.css" rel="stylesheet"/>
+  <body>
+    <div id="container">
+      <div class="mainImgContainer">
+        <form action="" method="post" name="form">
+          <input type="radio" name="dest" value="/"> <b>Home</b>
+          <input type="radio" name="dest" value="City"> <b>City</b>
+          <input type="radio" name="dest" value="Nature"> <b>Nature</b>
+          <input type="radio" name="dest" value="Leisure"> <b>Leisure</b>
+          <input type="radio" name="dest" value="Sports"> <b>Sports</b>
+          <br/>
+          <input type="submit" value="Go!">
+        </form>
+      </div>
+    </div>
+  <html><body>
+  '''
+  return form
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug=True)

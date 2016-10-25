@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Valencia Catalogue</title>
+    <link href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}" rel="stylesheet"
+    />
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet"
+    />
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="header">
+      <a href="/"><img src="{{ url_for('static',
+      filename='img/valenciaShield.png') }}"/></a>
+      <ul>
+        <li><a href="../City">City</a></li>
+        <li><a href="../Nature">Nature</a></li>
+        <li><a href="../Leisure">Leisure</a></li>
+        <li><a href="../Sports">Sports</a></li>
+      </ul>
+    </div>
+    <div id="container">
+    <h1> ERROR, the requested URL is not valid</h1>
+    <div class="mainImgContainer">
+      <h3> Let us take you back </h3>
+      <h4> Where do you want to go? </h4>
+      {{ form }}
+    </div>  
+    </div>
+  </body>
+</html>
