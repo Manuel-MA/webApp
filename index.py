@@ -12,41 +12,95 @@ def cover():
 @app.route("/City")
 def city():
   topic='City'
-  pictures=['street','arts1',
-  'arts2','townHall','bullring','skyline','townHall2','velesEvents']
-  descriptions=['First description','Second description','Third description','qwe','qweqwe']
+  pictures=['arts1','street','townHall','bullring','skyline','velesEvents']
+  descriptions=['First description','Second description','Third description',
+  'qwe','qweqwe','Veles e Vents']
   return render_template('gallery.html',topic=topic,pictures_descriptions=zip(pictures,descriptions)), 200
 
 @app.route("/Nature")
 def nature():
   topic='Nature'
-  pictures=['albufera','malvarrosaBeach','coast']
-  descriptions=['Albufera','Malvarrosa','Random Coast']  
+  pictures=['albufera','malvarrosaBeach','coast','montanejos','serella','covaTallada']
+  descriptions=['Albufera','Malvarrosa','Altea','Montanejos','Serella','Cova tallada']  
   return render_template('gallery.html',topic=topic,pictures_descriptions=zip(pictures,descriptions)), 200
 
 
 @app.route("/Leisure")
 def leisure():
   topic='Leisure'
-  pictures=['fallas']
-  descriptions=['Fallas']  
+  pictures=['fallas','gulliver','marinaBeach','umbracle','olympia','heronCity']
+  descriptions=['Fallas','Gulliver','Marina Beach','Umbracle Disco',
+  'Olumpia Theatre','Heron City']  
   return render_template('gallery.html',topic=topic,pictures_descriptions=zip(pictures,descriptions)), 200
 
 @app.route("/Sports")
 def sports():
   topic='Sports'
-  pictures=['fonteta','surf','llevant','athleticsTrack',
-  'mestalla','paddleSurf','skatePark','volleyCourt','courts']
+  pictures=['fonteta','surf','athleticsTrack',
+  'mestalla','skatePark','volleyCourt']
   descriptions=['"La Fontenta" basket stadium','Surf on Malvarrosa Beach',
-  'Levante UD stadium','Athletics Track','Valencia CF stadium',
-  'Paddle surf on Valencia`s port','Skate park','Volleyball courts','Sports courts']  
+  'Athletics Track','Valencia CF stadium', 'Skate park','Volleyball courts']  
   return render_template('gallery.html',topic=topic,pictures_descriptions=zip(pictures,descriptions)), 200
 
 @app.route("/<catalogue>/<picture>")
 def picture(catalogue=None,picture=None):
   cat = {'catalogue':catalogue}
   pict = {'picture':picture}
-  return render_template('picture.html',cat=cat,pict=pict)
+  if catalogue == "City":
+    if picture == "street":
+      description = 'Valencia`s street'
+    elif picture == "arts1":
+      description = 'Arts'
+    elif picture == "townHall":
+      description = 'Arts2'
+    elif picture == "bullring":
+      description = 'Bullring'
+    elif picture == "skyline":
+      description = 'Skyline'
+    elif picture == "velesEvents":
+      description = 'Veles e Vents'
+  elif catalogue == "Nature":
+    if picture == "albufera":
+      description = 'Albuferaa'
+    elif picture == "malvarrosaBeach":
+      description = 'Malvarrosa Beach'
+    elif picture == "coast":
+      description = 'Altea`s coast'
+    elif picture == "montanejos":
+      description = 'Montanejos lake'
+    elif picture == "serella":
+      description = 'Serella`s mountain'
+    elif picture == "covaTallada":
+      description = 'Cova Tallada'
+  elif catalogue=="Leisure":
+    if picture=="fallas":
+      description = 'These are las fallas'
+    elif picture == "gulliver":
+      description = 'Gulliver'
+    elif picture == "marinaBeach":
+      description = 'Marina Beach'
+    elif picture == "umbracle":
+      description = 'Umbracle'
+    elif picture == "olympia":
+      description = 'Olympia'
+    elif picture == "heronCity":
+      description = 'Heron City'
+  elif catalogue=="Sports":
+    if picture=="fonteta":
+      description = 'This is Valencia Basket`s stadium'
+    elif picture == "surf":
+      description = 'Surf'
+    elif picture == "athleticsTrack":
+      description = 'Athletics Track'
+    elif picture == "skatePark":
+      description = 'Skate Park'
+    elif picture == "mestalla":
+      description = 'Mestalla'
+    elif picture == "volleyCourt":
+      description = 'VolleyBall court'
+
+  return render_template('picture.html',cat=cat,pict=pict,description=description), 200
+  
 
 @app.errorhandler(404)
 def page_not_found(error):
