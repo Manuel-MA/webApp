@@ -1,0 +1,40 @@
+1-Introduction
+	The webApp is a Valencia city catalogue, it has a cover which through it you can go inside the 
+	categories which have many pictures that you can get a description just clicking in them.
+	The available categories are: 
+		-"City", in which you can find some different Valencia places.
+		-"Nature", in which you can find mountains, lakes, coasts and a cave.
+		-"Leisure", where you can find places to enjoy time in Valencia.
+		-"Sports", here you can find some sport facilities.
+	When you click on any picture, it takes you to another page in which you can see that picture with 
+	a short description.
+	There is also an error code handler that allows you to go back to any of the categories.
+	
+2-Architecture
+	There are three elements in the main folder. The Python archive called 'index.py', also there are two 
+	folders, first the 'templates' folder in which are all the templates are used in the web app, and the 
+	second is the 'static' folder in which are other more four folders called 'css', 'fonts', 'img' and 
+	'js'. Inside of these folders are the css archives, fonts archives, pictures and javaScript archives 
+	respectively.
+	
+3-Enhancements
+	I would like to implement a search bar to look for the picture you want.
+	I would like to improve the code error handler, just doing that when you are redirected, on the URL
+	appears the right route.
+	
+4-Critical evaluation
+	I think it could be better with an adaptable css, I mean, I'd like that it would be auto resizable.
+	Maybe I should put more categories or more features through which the pictures could be differentiate.
+	I didn't know how to fit a logging into a catalogue but I think to implement that would be nice.
+	
+5-Personal evaluation
+	All I know about python I have learnt with this module. I found a lot of problems during I was doing the
+	web app, for example how to send more than one list to a template. All the challenges I faced was solved 
+	looking for it on internet, specially on stackoverflow.
+
+6-Resources
+	-workbook
+	-http://stackoverflow.com/
+	-https://docs.python.org/3/tutorial/controlflow.html
+	-https://docs.python.org/2/library/functions.html#zip
+	-http://thepythonguru.com/python-strings/
